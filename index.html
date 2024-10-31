@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Diwali</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            overflow: hidden;
+            color: #ffd700;
+        }
+
+        .input-container, .greeting-container {
+            text-align: center;
+            display: none;
+        }
+
+        .input-container.active, .greeting-container.active {
+            display: block;
+        }
+
+        h1, p {
+            text-shadow: 0px 0px 10px #ffd700, 0px 0px 20px #ffa500, 0px 0px 30px #ff4500;
+            color: #ffd700;
+        }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
+        p {
+            font-size: 1.5em;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            margin-top: 20px;
+            background-color: #ff4500;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Animation for flickering lights */
+        @keyframes flicker {
+            0% { opacity: 0.8; text-shadow: 0 0 10px #ffd700, 0 0 20px #ffa500, 0 0 30px #ff4500; }
+            50% { opacity: 1; text-shadow: 0 0 20px #ffa500, 0 0 30px #ff4500, 0 0 40px #ffd700; }
+            100% { opacity: 0.8; text-shadow: 0 0 30px #ff4500, 0 0 40px #ffd700, 0 0 50px #ffa500; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Name Input Page -->
+    <div class="input-container active" id="inputPage">
+        <h1>Enter the Name</h1>
+        <input type="text" id="nameInput" placeholder="Type a name...">
+        <button onclick="showGreeting()">Wish Happy Diwali</button>
+    </div>
+
+    <!-- Greeting Page -->
+    <div class="greeting-container" id="greetingPage">
+        <h1 id="greetingMessage">Happy Diwali!</h1>
+        <p>May your life be as bright as the lights of Diwali.</p>
+    </div>
+
+    <script>
+        function showGreeting() {
+            const name = document.getElementById('nameInput').value;
+            if (name) {
+                document.getElementById('greetingMessage').innerText = `Happy Diwali, ${name}!`;
+                document.getElementById('inputPage').classList.remove('active');
+                document.getElementById('greetingPage').classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
